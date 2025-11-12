@@ -13,7 +13,7 @@ console.log(`Array 2: ${arr2}`);
 // accessing array elements
 console.log(`First element: ${arr[0]}`);
 console.log(`Third element: ${arr[2]}`);
-console.log(`Third element: ${arr[4]}`);
+console.log(`Fifth element: ${arr[4]}`);
 
 
 
@@ -117,3 +117,59 @@ let student = {
 };
 console.log(`Math marks: ${student.marks.math}`);
 console.log(student.name);
+
+// Q. Use map function to create a new array with the square of each element from the given array.
+let arr78 =[1,2,3,4,5];
+let newArr = arr78.map(function(val){
+    return val * val;
+});
+console.log(newArr); // [1,4,9,16,25]
+
+
+// Q. Use filter function to create a new array with only the even numbers from the given array.
+let arr35 = [1,2,5,8,10,12,15];
+let fil_arr = arr35.filter(function(val){
+    return val % 2 == 0;
+});
+console.log(fil_arr); // [2,8,10,12]
+
+
+// Q. Use reduce function to calculate the sum of all elements in the given array.
+let arr90 = [1000,2000,3000,4000];
+let sum9=arr90.reduce(function(acc, val){
+    return acc + val;
+}, 0);
+console.log(sum9); // 10000
+
+
+// Q. Use some and every functions to check conditions on the elements of the given array.
+let characters = ["aviator", "batman", "catwoman", "daredevil","cat", "antman"
+];
+let some = characters.some(function(val){
+    return val.length > 7;
+});
+console.log(some); // true (aviator, batman, catwoman, daredevil have length > 7)
+let every = characters.every(function(val){
+    return val.length > 5;
+});
+console.log(every); // false (cat and antman have length <= 5)
+
+
+// Q. use object.freeze to make an object immutable.
+let person = {
+    name: "John",
+    age: 30};
+Object.freeze(person);
+person.age = 35; // this will not change the age property
+console.log(person.age); // 30
+
+// using seal to prevent adding or removing properties from an object
+let vehicle = {
+    type: "car",
+    brand: "Toyota" };
+Object.seal(vehicle);
+vehicle.color = "red"; // this will not add a new property
+delete vehicle.brand; // this will not delete the brand property
+vehicle.type = "truck"; // this will change the type property
+console.log(vehicle); // {type: "truck", brand: "Toyota"}
+
