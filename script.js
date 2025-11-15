@@ -16,6 +16,11 @@ console.log(`Third element: ${arr[2]}`);
 console.log(`Fifth element: ${arr[4]}`);
 
 
+// modifying array elements
+arr[2]= 33; // changing 3rd element to 33
+console.log(`Modified Array: ${arr}`); 
+
+
 
 // functions on arrays
 // push() - adds an element at the end of the array
@@ -39,6 +44,68 @@ arr3.unshift(0); // adds 0 at the beginning
 console.log(`After unshift: ${arr3}`);
 
 
+// splice() - adds/removes elements at a specific index
+arr3.splice(2,2); // removes 2 elements starting from index 2
+console.log(`After splice: ${arr3}`);
+
+
+// slice() - returns a shallow copy of a portion of an array into a new array object
+let newArr1 = arr3.slice(0,3); // copies elements from index 0 to 2
+console.log(`Sliced Array: ${newArr1}`);
+
+
+// reverse() - reverses the array
+arr.reverse();
+console.log(`Reversed Array: ${arr}`);
+
+
+// sort() - sorts the array
+let srt = [3,1,4,5,2];
+let sr = srt.sort(function(a,b){
+    return a-b; // ascending order
+    // return b-a; // descending order
+})
+console.log(sr);
+
+
+// forEach() - executes a provided function once for each array element
+srt.forEach(function(val){
+    console.log(val);
+})
+
+// map() - tab use krna h jb apko naya array chahiye based on some operation on original array
+let map_1 = srt.map(function(val){
+    return val * 2;
+});
+console.log(map_1);
+
+
+// filter() - creates a new array with all elements that pass the test implemented by the provided function
+let filt = [1,2,3,4,5,6];
+let filtered = filt.filter(function(val){
+    if (val % 2 === 0){
+        return true;
+    }
+})
+console.log(filtered);
+
+
+// reduce() - result is a single value which is the accumulated result of the function
+let red = [1,2,3,4,5,6];
+let sum10 = red.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+}, 0);
+console.log(sum10);
+
+
+// find() - returns the value of the first element that satisfies the provided testing function
+let found = red.find(function(val){
+    return val > 3;
+});
+console.log(`First element greater than 3: ${found}`); 
+
+
+
 // indexOf() - returns the index of the first occurrence of an element
 let index = arr3.indexOf(2);
 console.log(`Index of 2: ${index}`);
@@ -48,6 +115,13 @@ console.log(`Index of 2: ${index}`);
 // array destructuring allows us to unpack values from arrays into distinct variables
 let[a, ,c] = arr3; // skips the second element
 console.log(`Destructured values: a=${a}, c=${c}`);
+
+
+// spread operator - allows an iterable such as an array to be expanded in places where zero or more arguments or elements are expected
+// copying an array
+let arr56 = [10, 20, 30, 40,50,60,70];
+let arr29 = [...arr56]; // creates a shallow copy of arr56
+console.log(`Copied array using spread operator: ${arr2}`);
 
 
 // filtering an array
